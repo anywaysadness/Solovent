@@ -1,15 +1,15 @@
 <!--Html домашней страницы. -->
 
-<!--Подключение CSS-->
 <!--Наследование от файла layout.-->
 {% extends 'web/layout.html' %}
 {% load static %}
 
-<!-- Блок заголовка страницы -->
+<!-- Блок подключения css -->
 {% block css %}
 <link rel="stylesheet" href="{% static 'datepicker/css/datepicker.min.css' %}" xmlns="http://www.w3.org/1999/html">
 {% endblock %}
 
+<!-- Блок заголовка страницы -->
 {% block title %}{{ title }}{% endblock %}
 
 <!-- Блок основного контента -->

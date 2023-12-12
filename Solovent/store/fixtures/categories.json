@@ -1,0 +1,65 @@
+[
+  {
+    "model": "store.category",
+    "pk": 1,
+    "fields": {
+      "name": "Attractions",
+      "slug": "Attractions",
+      "image": "category_image/icons8-theme-park-50.png"
+    }
+  },
+  {
+    "model": "store.category",
+    "pk": 2,
+    "fields": {
+      "name": "Bar",
+      "slug": "Bar",
+      "image": "category_image/icons8-bar-50.png"
+    }
+  },
+  {
+    "model": "store.category",
+    "pk": 3,
+    "fields": {
+      "name": "Event planners",
+      "slug": "Event_planners",
+      "image": "category_image/icons8-calendar-50.png"
+    }
+  },
+  {
+    "model": "store.category",
+    "pk": 4,
+    "fields": {
+      "name": "Food",
+      "slug": "Food",
+      "image": "category_image/icons8-burger-50.png"
+    }
+  },
+  {
+    "model": "store.category",
+    "pk": 5,
+    "fields": {
+      "name": "Music",
+      "slug": "Music",
+      "image": "category_image/icons8-dj-66.png"
+    }
+  },
+  {
+    "model": "store.category",
+    "pk": 6,
+    "fields": {
+      "name": "Photography",
+      "slug": "Photography",
+      "image": "category_image/icons8-camera-50.png"
+    }
+  },
+  {
+    "model": "store.category",
+    "pk": 7,
+    "fields": {
+      "name": "Venues",
+      "slug": "Venues",
+      "image": "category_image/icons8-place-50.png"
+    }
+  }
+]

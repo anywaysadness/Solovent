@@ -1,0 +1,122 @@
+.main-content {
+
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.create-form-container {
+background: #fff;
+	width: 100%;
+	max-width: 415px;
+	box-shadow: 0px 5px 20px rgba(217,229,255);
+	border-radius: 20px;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-top: 38px;
+	padding-bottom: 38px;
+	animation-name: fadeForm;
+	animation-duration: .7s;
+	animation-timing-function: ease-in-out;
+	animation-delay: 0s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+	transition: all .3s ease-in-out;
+}
+.create-form-container:hover{
+    box-shadow: 0px 5px 50px rgba(217,229,255);
+}
+
+.form-fields {
+    width:100%;
+}
+.readonly-class {
+    font-size: 14px;
+    line-height: 16px;
+    border: 2px solid #dccfe8;
+    border-radius: 5px;
+    padding-left:5px;
+}
+select{
+    font-size: 14px;
+    line-height: 16px;
+    border: 2px solid #dccfe8;
+    border-radius: 5px;
+    padding-left:5px;
+}
+select:focus{
+    outline: none;
+    border: 2px solid #4A00E0;
+}
+
+select option{
+    font-size: 14px;
+    line-height: 16px;
+    border: 2px solid #dccfe8;
+    border-radius: 5px;
+    padding-left:5px;
+}
+
+.form-field {
+    margin-bottom: 10px;
+}
+input[type=number]{
+    color: #000;
+    border: 2px solid #dccfe8;
+}
+input[type=number]:focus{
+outline: none;
+	border: 2px solid #4A00E0;
+}
+input, textarea {
+	height: 45px;
+	width: 100%;
+	color: #385983;
+	font-size: 14px;
+	line-height: 16px;
+	border: 2px solid #dccfe8;
+	border-radius: 5px;
+	padding-left: 5px;
+	transition: all .3s ease-in-out;
+    resize: vertical
+}
+
+input:focus{
+	outline: none;
+	border: 2px solid #4A00E0;
+}
+
+textarea:focus {
+    outline: none;
+	border: 2px solid #4A00E0;
+	height: 300px;
+}
+
+.button {
+
+	height: 45px;
+	font-size: 14px;
+	font-weight: bold;
+	background: linear-gradient(to left, #8E2DE2, #4A00E0, #8E2DE2);
+	border-radius: 5px;
+	color: #fff;
+	text-transform: uppercase;
+    border:none;
+	line-height: 45px;
+
+	background-size:200%;
+    transition: all .5s ease-in-out;
+
+}
+
+.button:hover{
+	background-position: right;
+	color: #fff;
+
+}
+
+a.button {
+	text-decoration: none;
+}

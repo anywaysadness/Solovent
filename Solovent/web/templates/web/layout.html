@@ -66,15 +66,17 @@
                                 </li>
 
                                 <li class="for-full-screens"><a href="{% url 'store:catalog' %}">Store</a></li>
-<!--                                <li><a href="{% url 'contacts' %}">Contacts</a></li>-->
                             </ul>
                             {% if user.is_authenticated %}
                             <div class="loginbar-menu">
+                                <a class="btn-color-custom-layout" href="http://127.0.0.1:8000/admin/">Admin Panel</a>
+                                <a class="btn-color-custom-layout" href="{% url 'web:create_event' %}">Create event</a>
                                 <a class="btn-color-custom-layout" href="{% url 'users:profile' user.id %}">Profile</a>
                                 <a class="btn-color-custom-layout" href="{% url 'users:logout' %}">Exit</a>
                             </div>
                             {% else %}
                             <div class="loginbar-menu">
+<!--                                <a class="btn-color-custom-layout" href="{% url 'users:login' %}">Join as a vendor</a>-->
                                 <a class="btn-color-custom-layout" href="{% url 'users:login' %}">Log in</a>
                                 <a class="btn-color-custom-layout" href="{% url 'users:registration' %}">Sign up</a>
                             </div>

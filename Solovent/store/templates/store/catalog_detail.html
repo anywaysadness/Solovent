@@ -22,7 +22,7 @@
                         <a href="{% url 'store:category' product.category.id %}"> {{ product.category }}</a>
                     </h5>
                     <h5>
-                        <a href="#">vendor name</a>
+                        <a href="#">{{ product.creator }} </a>
                     </h5>
                     <h6>
                         Rating
@@ -30,7 +30,6 @@
                 </div>
 
                 <div class="row">
-
                     <div class="col-lg-8 product-thumb">
                         <a href="#">
                             <img class="card-img-top"
@@ -43,32 +42,31 @@
                     </div>
 
                     <div class="col-lg-4 description-product">
-                        <div class="add-to-card">
-                            <input min="{{product.number_of_quests}}" value="{{product.number_of_quests}}"type="number">
-                            <p class="price-text">₪{{product.price}}</p>
-                            <a class="btn-color-custom" href="{% url 'store:basket_add' product.id %}">Add to card</a>
-                        </div>
-
-
                         <h6>Product description:</h6>
                         <p>{{product.description}}</p>
                         <h6>We are working:</h6>
 
-                        <div class="calendar-work">
-                            <div class="calendar-work-days">
-                                {% for days in product.work_days.all %}
-                                    <p>{{days.work_day|slice:":3"}}</p>
-                                {% endfor %}
-                            </div>
-                            <div class="calendar-work-time">
-                                <p>From {{product.beginning_of_work_day_time}} to {{product.end_of_work_day_time}}</p>
-                            </div>
-
+                        <div class="calendar-work-time">
+                            {% for worktime in product.product_rn.all %}
+                            <p>{{worktime.name_day}}: {{worktime.beginning_of_work_day_time}} TO
+                                {{worktime.end_of_work_day_time}}</p>
+                            {% endfor %}
                         </div>
+
+                        <div class="add-to-card">
+                            <h6>Make a reservation:</h6>
+                            <input min="{{product.number_of_guests}}"
+                                   value="{{product.number_of_guests}}" type="number" class="inpt-nmbr-gsts">
+                            <p class="price-text">Minimal number of guests ₪{{product.price}}</p>
+                            <a class="btn-color-custom" href="{% url 'store:basket_add' product.id %}">Add to card</a>
+                        </div>
+
                     </div>
 
                 </div>
+
             </div>
+        </div>
 
 <!--            <div class="container">-->
 

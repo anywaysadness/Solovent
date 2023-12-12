@@ -1,0 +1,100 @@
+<!--Html страницы создания продукта. -->
+
+<!--Наследование от файла layout.-->
+{% extends 'web/layout.html' %}
+{% load static %}
+
+<!-- Блок подключения css -->
+{% block css %}
+    <link rel="stylesheet" href="{% static 'web/css/create_event.css' %}">
+{% endblock %}
+
+<!-- Блок заголовка страницы -->
+{% block title %}{{ title }}{% endblock %}
+
+<!-- Блок основного контента -->
+{% block content %}
+<form action="{% url 'web:create_event' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="main-content">
+        <div class="create-form-container">
+              <h6 class="form-title">Create new product</h6>
+                    <div class="form-fields">
+                        <div class="form-field">
+                            Creator:
+                            <div class="readonly-class">
+                                {{ user.username }}
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            Name event:
+                            {{ form.name }}
+                        </div>
+                        <div class="form-field">
+                            Name day:
+                            {{ form.name_day }}
+                        </div>
+                         <div class="form-field">
+                            Category:
+                             <div class="drop-down-list">
+                                 {{ form.category }}
+                             </div>
+                        </div>
+                        <div class="form-field">
+                            Description product. 1000 characters max.
+                            {{ form.description }}
+                        </div>
+                        <div class="form-field">
+                            Average price per guest:
+                            {{ form.price }}
+                        </div>
+                         <div class="form-field">
+                            Minimum number of guests:
+                            {{ form.number_of_guests}}
+                        </div>
+                        <div class="form-field">
+                            beginning_of_work_day_time:
+                            {{form.beginning_of_work_day_time}}
+                        </div>
+                          <div class="form-field">
+                            Work days:
+                            {{ form.work_day }}
+                        </div>
+                         <div class="form-field">
+                            Image:
+                            {{ form.image }}
+                        </div>
+
+
+<!--                        {% for i in form.work_days %}-->
+<!--                         <div class="form-field">-->
+<!--                            {{i}}-->
+
+<!--                        </div>-->
+<!--                        {% endfor %}-->
+<!--                        <div class="form-field">-->
+<!--                            beginning_of_work_day_time:-->
+<!--                            {{ form.beginning_of_work_day_time }}-->
+<!--                        </div>-->
+<!--                        <div class="form-field">-->
+<!--                            end_of_work_day_time:-->
+<!--                            {{ form.end_of_work_day_time }}-->
+<!--                        </div>-->
+                    </div>
+                    <button type="submit" class="button button-reg">Create</button>
+        </div>
+    </div>
+
+<!--    <input type="text" placeholder="name event">-->
+<!--    <textarea placeholder="description"></textarea>-->
+<!--    <input type="number" placeholder="price">-->
+<!--    <input type="number" placeholder="number_of_guests">-->
+<!--    <input type="time" placeholder="beginning_of_work_day_time">-->
+<!--    <input type="time" placeholder="end_of_work_day_time">-->
+<!--    <button type="submit">create</button>-->
+
+
+</form>
+
+
+{% endblock %}

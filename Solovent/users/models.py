@@ -5,10 +5,14 @@ from phonenumber_field.modelfields import PhoneNumberField
 
 
 class User(AbstractUser):
-    image = models.ImageField(upload_to="users_image/%Y/%m/%d", null=True, blank=True, max_length=255)
-    is_verified_email = models.BooleanField(default=False)
-    email = models.EmailField(null=True, blank=True)
-    phone_number = PhoneNumberField(unique=True, null=True, blank=False)
+    image = models.ImageField(upload_to="users_image/", null=True, blank=True, max_length=255,
+                              verbose_name='User photo')
+    is_verified_email = models.BooleanField(default=False, verbose_name='User email confirmed')
+    email = models.EmailField(null=True, blank=True, verbose_name='User email')
+    phone_number = PhoneNumberField(unique=True, null=True, blank=True, verbose_name='User phone number')
+
+    def __str__(self):
+        return f'{self.username}'
 
 
 class EmailVerification(models.Model):

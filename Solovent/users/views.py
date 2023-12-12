@@ -5,9 +5,19 @@ from django.views.generic.base import TemplateView
 from django.contrib.messages.views import SuccessMessageMixin
 
 from users.models import User, EmailVerification
-from users.forms import UserLoginForm, UserRegistrationForm, UserProfileForm
+from users.forms import UserLoginForm, UserRegistrationForm, UserProfileForm, VendorRegistrationForm
 from store.models import Basket
 from common.views import TitleMixin
+
+
+# Class for registration Vendor
+class VendorRegistrationView(TitleMixin, SuccessMessageMixin, CreateView):
+    model = User
+    form_class = VendorRegistrationForm
+    template_name = 'users/registration.html'
+    success_url = reverse_lazy('users:login')
+    success_message = 'You have successfully registered!'
+    title = 'Solovent - Registration'
 
 
 # Class for registration user
@@ -52,3 +62,5 @@ class EmailVerificationView(TitleMixin, TemplateView):
         user = User.objects.get(email=kwargs['email'])
         email_verifications = EmailVerification.objects.filter(user=user, code=code)
         return super(EmailVerificationView)
+
+

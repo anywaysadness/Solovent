@@ -383,7 +383,7 @@ footer #rights {
     opacity:1;
 }
 input[type="text"]{
-    padding:0;
+
 }
 input[type="number"]:focus-visible{
     opacity: 1;

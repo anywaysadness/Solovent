@@ -1,6 +1,10 @@
-from django.shortcuts import render
-from django.http import HttpResponseNotFound
+from django.urls import reverse_lazy
 from django.views.generic.base import TemplateView
+from django.views.generic.edit import CreateView
+from django.contrib.messages.views import SuccessMessageMixin
+
+from store.models import Product,WorkDays
+from web.forms import CreateEventForm
 
 from common.views import TitleMixin
 
@@ -11,10 +15,14 @@ class IndexView(TitleMixin, TemplateView):
     title = 'Solovent - Home'
 
 
-def contacts_view(request):
-    return render(request, 'web/contacts.html')
+# Class for create new events
+class CreateEventView(TitleMixin, SuccessMessageMixin, CreateView):
+    model = WorkDays
+    form_class = CreateEventForm
+    template_name = 'web/create_event.html'
+    success_url = reverse_lazy('store:catalog')
+    success_message = 'You have successfully create!'
+    title = 'Solovent - Create event'
 
-
-def pageNotFound(request, exception):
-    return HttpResponseNotFound('<h1>Sorry, page not found =(</h2>')
-
+    def get_queryset(self):
+        queryset = super(CreateEventView, self).get_queryset()

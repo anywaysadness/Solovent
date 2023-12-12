@@ -1,11 +1,11 @@
 from django.shortcuts import HttpResponseRedirect
-from django.http import HttpResponse
+from django.db.models import Q
 from django.contrib.auth.decorators import login_required
-from .models import Product, Category, Basket,WorkDays
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
+
 from common.views import TitleMixin
-from django.db.models import Q
+from .models import Product, Category, Basket
 from datetime import datetime
 
 
@@ -41,6 +41,8 @@ class CatalogDetailView(TitleMixin, DetailView):
     template_name = 'store/catalog_detail.html'
     title = 'Solovent - Detail'
 
+def Create_new_event(request, pk):
+    pass
 
 class CatalogDateSearch(TitleMixin, ListView):
     model = Product
@@ -49,7 +51,6 @@ class CatalogDateSearch(TitleMixin, ListView):
 
     def get_queryset(self):
         queryset = super(CatalogDateSearch, self).get_queryset()
-
         search_time = self.request.GET.get('search_time')
         search_guests = self.request.GET.get('search_guests')
         print(f'search_guests:{search_guests}')
