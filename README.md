@@ -11,3 +11,4 @@ Service for the provision of services for various events
   ```shell
   python manage.py runserver
 - standard server address **127.0.0.1:8000**
+  <img src="img/home.jpg" width="1280" height="622" alt="home page">
